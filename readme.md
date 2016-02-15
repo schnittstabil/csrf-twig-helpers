@@ -134,6 +134,13 @@ $app->run();
 ```
 
 
+## Related
+
+* [schnittstabil/csrf-tokenservice](https://github.com/schnittstabil/csrf-tokenservice) – (stateless) CSRF token service
+* [schnittstabil/psr7-csrf-middleware](https://github.com/schnittstabil/psr7-csrf-middleware) – PSR-7 CSRF protection middleware
+* [schnittstabil/csrf-twig-helpers](https://github.com/schnittstabil/csrf-twig-helpers) – Twig helpers for token rendering
+
+
 ## License
 
 MIT © [Michael Mayer](http://schnittstabil.de)
