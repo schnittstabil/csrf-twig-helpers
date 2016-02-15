@@ -1,0 +1,14 @@
+--TEST--
+"csrf_meta_widget" function
+--TEMPLATE--
+{{ csrf_meta_widget() }}
+{{ csrf_meta_widget() }}
+{{ csrf_meta_widget() | raw }}
+{{ csrf_meta_widget() | raw }}
+--DATA--
+return array()
+--EXPECT--
+<meta name="X-XSRF-TOKEN" content="eyJpYXQiOjE0NTU1NTA1NzUsInR0bCI6MTQ0MCwiZXhwIjoxNDU1NTUyMDE1fQ.qhqpQ9QNhy9il4MkMYHU9r7X91Td8FtyI3HunMZIG2GPEvPQ0kVgqSbg_nhxgrdbq7QgUY2CO_6GcP4cuXd9FQ" />
+<meta name="X-XSRF-TOKEN" content="&lt;script&gt;console.log(&quot;I am nasty!&quot;);&lt;/script&gt;" />
+<meta name="X-XSRF-TOKEN" content="eyJpYXQiOjE0NTU1NTA1NzUsInR0bCI6MTQ0MCwiZXhwIjoxNDU1NTUyMDE1fQ.qhqpQ9QNhy9il4MkMYHU9r7X91Td8FtyI3HunMZIG2GPEvPQ0kVgqSbg_nhxgrdbq7QgUY2CO_6GcP4cuXd9FQ" />
+<meta name="X-XSRF-TOKEN" content="&lt;script&gt;console.log(&quot;I am nasty!&quot;);&lt;/script&gt;" />

@@ -1,0 +1,23 @@
+engines:
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+    checks:
+      Generic Files LineLength TooLong:
+        enabled: false
+  phpmd:
+    enabled: true
+    checks:
+      Controversial/Superglobals:
+        enabled: false
+ratings:
+   paths:
+   - "Schnittstabil/**/*"
+   - "**.php"
+   - "**.module"
+   - "**.inc"
+exclude_paths:
+- "tests/**/*"
+- ".codeclimate.yml"
+- "sami_configuration.php"

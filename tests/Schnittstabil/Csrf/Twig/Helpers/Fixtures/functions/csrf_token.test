@@ -1,0 +1,14 @@
+--TEST--
+"csrf_token" function
+--TEMPLATE--
+{{ csrf_token() }}
+{{ csrf_token() }}
+{{ csrf_token() | raw }}
+{{ csrf_token() | raw }}
+--DATA--
+return array()
+--EXPECT--
+eyJpYXQiOjE0NTU1NTA1NzUsInR0bCI6MTQ0MCwiZXhwIjoxNDU1NTUyMDE1fQ.qhqpQ9QNhy9il4MkMYHU9r7X91Td8FtyI3HunMZIG2GPEvPQ0kVgqSbg_nhxgrdbq7QgUY2CO_6GcP4cuXd9FQ
+&lt;script&gt;console.log(&quot;I am nasty!&quot;);&lt;/script&gt;
+eyJpYXQiOjE0NTU1NTA1NzUsInR0bCI6MTQ0MCwiZXhwIjoxNDU1NTUyMDE1fQ.qhqpQ9QNhy9il4MkMYHU9r7X91Td8FtyI3HunMZIG2GPEvPQ0kVgqSbg_nhxgrdbq7QgUY2CO_6GcP4cuXd9FQ
+<script>console.log("I am nasty!");</script>
