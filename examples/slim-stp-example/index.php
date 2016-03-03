@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Schnittstabil\Psr7\Csrf\MiddlewareBuilder as CsrfMiddlewareBuilder;
 
-/**
+/*
  * Create App
  */
 $app = new Slim\App([
@@ -15,8 +15,7 @@ $app = new Slim\App([
     ],
 ]);
 
-
-/**
+/*
  * Register Csrf Middleware
  */
 $app->getContainer()['csrf'] = function () {
@@ -28,8 +27,7 @@ $app->getContainer()['csrf'] = function () {
 
 $app->add('csrf');
 
-
-/**
+/*
  * Register Twig Extensions
  */
 $app->getContainer()['view'] = function ($c) {
@@ -49,8 +47,7 @@ $app->getContainer()['view'] = function ($c) {
     return $view;
 };
 
-
-/**
+/*
  * Add routes
  */
 $app->get('/', function (RequestInterface $request, ResponseInterface $response) {
@@ -61,8 +58,7 @@ $app->post('/contact', function (RequestInterface $request, ResponseInterface $r
     return $this->view->render($response, 'contact.html.twig', $request->getParsedBody());
 })->setName('contact');
 
-
-/**
+/*
  * Run app
  */
 $app->run();

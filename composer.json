@@ -39,6 +39,7 @@
             "vendor/bin/phpcs -s",
             "vendor/bin/phpmd Schnittstabil text cleancode,codesize,controversial,design,naming,unusedcode",
             "vendor/bin/php-cs-fixer fix --dry-run --diff Schnittstabil",
+            "vendor/bin/php-cs-fixer fix --dry-run --diff examples/*/*.php",
             "vendor/bin/php-cs-fixer fix --dry-run --diff tests",
             "vendor/bin/php-cs-fixer fix --dry-run --diff *.php"
         ],
