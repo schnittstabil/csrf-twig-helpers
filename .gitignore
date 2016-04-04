@@ -1,6 +1,5 @@
 /build/
-/coverage/
-/doc/
 vendor/
+cache/
 composer.lock
 composer.phar

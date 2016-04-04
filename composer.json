@@ -12,17 +12,20 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Schnittstabil\\": "Schnittstabil" }
+        "psr-4": { "Schnittstabil\\Csrf\\Twig\\Helpers\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Schnittstabil\\Csrf\\Twig\\Helpers\\": "tests" }
     },
     "require-dev": {
-        "codeclimate/php-test-reporter": "^0.2.0",
+        "codeclimate/php-test-reporter": "^0.3.0",
         "fabpot/php-cs-fixer": "^1.10",
-        "halleck45/phpmetrics": "^1.8",
-        "phpmd/phpmd": "^2.3",
-        "phpunit/phpunit": "^5.0",
+        "halleck45/phpmetrics": "^1.9",
+        "phpmd/phpmd": "^2.4",
         "sami/sami": "^3.1",
-        "satooshi/php-coveralls": "^0.6.1",
-        "squizlabs/php_codesniffer": "^2.5",
+        "satooshi/php-coveralls": "^1.0.1",
+        "schnittstabil/sugared-phpunit": "^0.2.0",
+        "squizlabs/php_codesniffer": "^2.6",
         "vladahejda/phpunit-assert-exception": "^1.0"
     },
     "require": {
@@ -30,28 +33,21 @@
         "twig/twig": "^1.24"
     },
     "scripts": {
-        "clean": "rm -rf build/ coverage/ doc/",
+        "clean": "rm -rf build/",
         "doc": [
-            "vendor/bin/sami.php update sami_configuration.php -v",
-            "vendor/bin/phpmetrics --report-html doc/metrics.html Schnittstabil/"
+            "sami.php update sami_configuration.php -v",
+            "phpmetrics --report-html build/phpmetrics/index.html src/"
         ],
         "lint": [
-            "vendor/bin/phpcs -s",
-            "vendor/bin/phpmd Schnittstabil text cleancode,codesize,controversial,design,naming,unusedcode",
-            "vendor/bin/php-cs-fixer fix --dry-run --diff Schnittstabil",
-            "vendor/bin/php-cs-fixer fix --dry-run --diff examples/*/*.php",
-            "vendor/bin/php-cs-fixer fix --dry-run --diff tests",
-            "vendor/bin/php-cs-fixer fix --dry-run --diff *.php"
-        ],
-        "phpunit": "vendor/bin/phpunit",
-        "watch": "gazer-color --pattern \"Schnittstabil/**/*\" --pattern \"tests/**/*\" -- composer watch-tasks",
-        "watch-tasks": [
-            "composer phpunit",
-            "composer lint",
-            "composer doc"
+            "phpcs -s --standard=PSR1,PSR2 src/ tests/",
+            "phpmd src text cleancode,codesize,controversial,design,naming,unusedcode",
+            "php-cs-fixer fix --dry-run --diff src",
+            "php-cs-fixer fix --dry-run --diff examples/*/*.php",
+            "php-cs-fixer fix --dry-run --diff tests",
+            "php-cs-fixer fix --dry-run --diff *.php"
         ],
         "test": [
-            "composer phpunit",
+            "sugared-phpunit",
             "composer lint"
         ]
     }

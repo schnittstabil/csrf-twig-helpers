@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/46f79541-4627-48f9-bb9a-92c4f90d02f3/big.png)](https://insight.sensiolabs.com/projects/46f79541-4627-48f9-bb9a-92c4f90d02f3)
 
-> CSRF (Cross-Site Request Forgery) protection helpers for the Twig templating engine.
+> CSRF (Cross-Site Request Forgery) protection helpers for the Twig templating engine :cactus:
 
 
 ## Install
@@ -50,9 +50,9 @@ $twig->addExtension(
 {# => <meta name="X-XSRF-TOKEN" content="...some token..." /> #}
 ```
 
-## Slim Example
+## Slim v3 Example
 
-For details see [examples directory](examples/).
+For complete examples see the [examples](examples/) directory.
 
 ### Install Additional Requirements
 
